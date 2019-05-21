@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">Dog Poo</string>
-    <string name="dog_poo">Dog Poo</string>
+    <string name="app_name">Dog Avoider</string>
+    <string name="dog_poo">Dog Avoider</string>
     <string name="start_game">Start Game</string>
     <string name="about">About</string>
+    <string name="none">None.</string>
 </resources>
