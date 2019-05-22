@@ -1,3 +1,5 @@
-# dogpoo
-Android game in Java - avoid the dog poo.
-Not production yet!
+# Dog Avoider
+
+Action-packed vertically scrolling game
+
+WIP
