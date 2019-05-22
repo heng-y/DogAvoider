@@ -27,6 +27,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
     private boolean hasCalibrated = false;
     private double initial_x = 0;
     private DecimalFormat format;
+    private double TILT_MULTIPLIER = 6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +71,19 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
             hasCalibrated = true;
         }
 
+        // Move the ImageView
+
+        double x = Double.parseDouble(format.format(event.values[0]));
+        if (x - initial_x < 0.7 && x - initial_x > -0.7) {
+            // The movement is noise - ignore it
+        } else if (x > initial_x) {
+            double pos = initial_x - x;
+            player.setX((float) (player.getX() + (pos * TILT_MULTIPLIER)));
+            Log.d("GAMEACTIVITY", "Moved player to the negative");
+        } else if (x < initial_x){
+            player.setX((float) (player.getX() - (x * TILT_MULTIPLIER) - initial_x));
+            Log.d("GAMEACTIVITY", "moved player to the positive");
+        }
 
     }
 
